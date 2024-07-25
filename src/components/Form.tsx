@@ -31,7 +31,6 @@ function Form() {
         const { name, logIn } = userSettings;
         const baseName = import.meta.env.VITE_NAME;
         const baseLogIn = import.meta.env.VITE_LOGIN;
-        console.log(import.meta.env);
 
         const isAuthCorrect = name === baseName && logIn === baseLogIn;
 
