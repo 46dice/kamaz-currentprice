@@ -11,7 +11,7 @@ function BitcoinPrice() {
 
     useEffect(() => {
         if (!isAuth) {
-            navigate('/');
+            navigate(import.meta.env.BASE_URL);
         }
     }, [isAuth, navigate]);
 

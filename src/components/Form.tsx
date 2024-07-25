@@ -1,6 +1,5 @@
 import { Button, Dialog, DialogActions, DialogContent, DialogTitle, TextField } from '@mui/material';
 import React, { useState } from 'react';
-import { baseUserSettings } from '../constants';
 import { useNavigate } from 'react-router-dom';
 
 interface iInitialUserSettings {
@@ -30,13 +29,16 @@ function Form() {
         event.preventDefault();
 
         const { name, logIn } = userSettings;
-        const { baseName, baseLogIn } = baseUserSettings;
+        const baseName = import.meta.env.VITE_NAME;
+        const baseLogIn = import.meta.env.VITE_LOGIN;
+        console.log(import.meta.env);
+
         const isAuthCorrect = name === baseName && logIn === baseLogIn;
 
         if (isAuthCorrect) {
             localStorage.setItem('name', JSON.stringify(name));
             localStorage.setItem('logIn', JSON.stringify(logIn));
-            navigate('/bitcoin-price');
+            navigate('bitcoin-price');
             setIsNoCorrectValue(false);
         } else {
             setIsNoCorrectValue(true);

@@ -8,7 +8,7 @@ import { store } from './store/store.ts';
 
 const router = createBrowserRouter(
     createRoutesFromElements(
-        <Route path='/' element={<App />}>
+        <Route path={import.meta.env.BASE_URL} element={<App />}>
             <Route index element={<AuthPage />} />
             <Route path='bitcoin-price' element={<BitcoinValue />} />
         </Route>,
