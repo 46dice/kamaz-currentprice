@@ -8,7 +8,7 @@ interface CurrencyCard {
 }
 
 function CurrencyCard({ code, description, price }: CurrencyCard) {
-    return (
+    return (   
         <Card>
             <CardContent>
                 <Typography variant='h6' gutterBottom>
@@ -24,3 +24,4 @@ function CurrencyCard({ code, description, price }: CurrencyCard) {
 }
 
 export default React.memo(CurrencyCard);
+
