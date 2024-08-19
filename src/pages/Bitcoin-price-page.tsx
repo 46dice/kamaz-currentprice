@@ -1,6 +1,6 @@
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import CurrencyValueList from '../components/Currency-value-list';
-import { useEffect } from 'react';
 
 function BitcoinPrice() {
     const name = localStorage.getItem('name');

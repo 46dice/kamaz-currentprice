@@ -1,10 +1,12 @@
-import { Alert, CircularProgress, Container, Grid, Stack, Typography } from '@mui/material';
 import { useEffect } from 'react';
+import { format } from 'date-fns';
+import { Alert, CircularProgress, Container, Grid, Stack, Typography } from '@mui/material';
+
+import { useAppDispatch, useAppSelector } from '../store/hooks.ts';
 import { fetchBitcoinData } from '../store/fetch.ts';
 import { RootState } from '../store/store.ts';
-import { useAppDispatch, useAppSelector } from '../store/hooks.ts';
-import { format } from 'date-fns';
 import { BpiInfo } from '../store/models.ts';
+
 import CurrencyCard from './Currency-card.tsx';
 
 function CurrencyValueList() {
@@ -38,6 +40,17 @@ function CurrencyValueList() {
         return <Alert severity='error'>{bitcoinData.error}</Alert>;
     }
 
+    const currencyCards = Object.keys(bitcoinData.bpi).map((currencyKey) => {
+        const currency = bitcoinData.bpi[currencyKey as keyof BpiInfo];
+        const updatedPrice = currency.rate.replace(/,/g, ' ');
+
+        return (
+            <Grid item xs={12} sm={6} md={4} key={currency.code}>
+                <CurrencyCard code={currency.code} description={currency.description} price={updatedPrice} />
+            </Grid>
+        );
+    });
+
     return (
         <Container>
             <Typography variant='h4' gutterBottom>
@@ -48,20 +61,7 @@ function CurrencyValueList() {
             </Typography>
 
             <Grid container spacing={3}>
-                {Object.keys(bitcoinData.bpi).map((currencyKey) => {
-                    const currency = bitcoinData.bpi[currencyKey as keyof BpiInfo];
-                    const updatedPrice = currency.rate.replace(/,/g, ' ');
-
-                    return (
-                        <Grid item xs={12} sm={6} md={4} key={currency.code}>
-                            <CurrencyCard
-                                code={currency.code}
-                                description={currency.description}
-                                price={updatedPrice}
-                            />
-                        </Grid>
-                    );
-                })}
+                {currencyCards}
             </Grid>
         </Container>
     );
