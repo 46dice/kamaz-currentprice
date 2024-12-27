@@ -67,12 +67,12 @@ cd superset
 sudo apt-get update
 sudo apt install -y build-essential curl file git
 
-//Установка brew на Ubuntu
+#Установка brew на Ubuntu
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> ~/.bashrc
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
-//macOS
+#macOS
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 brew install gcc curl openssl libffi python libsasl2 libldap mysql-client
@@ -91,7 +91,6 @@ brew install openssl libffi python3 mysql-client
 3. Создание виртуального окружения (venv)
 
 ```shell
-cd superset
 python3.8 -m venv venv
 ```
 
