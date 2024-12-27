@@ -69,7 +69,7 @@ sudo apt-get install -y build-essential curl libssl-dev libffi-dev python3-dev p
 
 sudo apt install -y build-essential curl file git
 
-#Установка brew на Ubuntu
+#Установка brew на Ubuntu (2 способ)
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> ~/.bashrc
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
@@ -100,7 +100,7 @@ pyenv install 3.8.16
 pyenv global 3.8.16
 ```
 
-2. Пример установки Python 3.8.16 и доп. пакетов для проекта
+2. Пример установки Python 3 и доп. пакетов для проекта
 
 ```shell
 brew install openssl libffi python3 mysql-client
@@ -246,7 +246,7 @@ gunicorn -w 2 -k gevent --worker-connections 100 --timeout 120 -b  0.0.0.0:8088 
 
 ### Сборка и запуск фронтенда для разработки backend
 
-1. Установить [Node.js](https://sberusersoft/#program/s/279) из SberUserSoft **версии 16.20.0**
+1. Установить [Node.js] **версии 16.9.1**
 
 2. Проверить текущую версию node.js:
 
