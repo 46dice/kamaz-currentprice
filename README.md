@@ -65,6 +65,8 @@ cd superset
 
 ```shell
 sudo apt-get update
+sudo apt-get install -y build-essential curl libssl-dev libffi-dev python3-dev python3-pip libsasl2-dev libldap2-dev default-libmysqlclient-dev
+
 sudo apt install -y build-essential curl file git
 
 #Установка brew на Ubuntu
@@ -80,7 +82,23 @@ brew install gcc curl openssl libffi python libsasl2 libldap mysql-client
 
 ### Сборка и запуск бекенда
 
-1. Установить Python 3.8.16 с помощью brew
+1. Установить Python 3.8.16 с помощью pyenv
+
+```shell
+# Установить pyenv через brew
+brew install pyenv
+
+# Добавить в .bashrc или .zshrc
+echo 'eval "$(pyenv init --path)"' >> ~/.bashrc
+echo 'eval "$(pyenv init -)"' >> ~/.bashrc
+source ~/.bashrc #Перезапустить терминал
+
+# Установить нужную версию Python
+pyenv install 3.8.16
+
+# Использовать установленную версию Python
+pyenv global 3.8.16
+```
 
 2. Пример установки Python 3.8.16 и доп. пакетов для проекта
 
@@ -91,6 +109,7 @@ brew install openssl libffi python3 mysql-client
 3. Создание виртуального окружения (venv)
 
 ```shell
+cd superset
 python3.8 -m venv venv
 ```
 
